@@ -7,135 +7,139 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f4f6f8;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f4f6f8, #eef2ff);
     }
 
     /* Header */
     header {
-      background: #0a7cff;
+      background: linear-gradient(to right, #0a7cff, #4facfe);
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
+      animation: fadeDown 1s ease;
     }
-    
-<section class="pricing-info">
-  <h2>Flexible Pricing Based on Quantity & GSM</h2>
-  <p>
-    Order more, pay less. Prices may vary based on order quantity and
-    GSM (material thickness).
-  </p>
-  <p>
-    Bulk orders get better pricing. GSM can be changed as per customer
-    requirement, and price will adjust accordingly.
-  </p>
-</section>
 
+    /* Info box */
     .pricing-info {
-  background: linear-gradient(135deg, #ffffff, #f1f5ff);
-  margin: 20px;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  animation: fadeUp 1s ease;
-}
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      animation: fadeUp 1s ease;
+    }
 
-.pricing-info h2 {
-  color: #0a7cff;
-  margin-bottom: 10px;
-}
+    .pricing-info h2 {
+      color: #0a7cff;
+    }
 
-.pricing-info p {
-  color: #444;
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-/* Simple premium animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .pricing-info p {
+      color: #444;
+      line-height: 1.6;
+    }
 
     /* Product grid */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 22px;
       padding: 20px;
     }
 
     /* Product card */
     .product-card {
       background: white;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-radius: 16px;
       padding: 15px;
       text-align: center;
-      transition: transform 0.3s;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.4s, box-shadow 0.4s;
+      animation: fadeUp 1.2s ease;
     }
 
     .product-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.22);
     }
 
     .product-card img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     .product-card h3 {
-      margin: 10px 0 5px;
+      margin: 12px 0 6px;
     }
 
-    /* Price tag */
     .price {
       color: #e63946;
       font-size: 18px;
       font-weight: bold;
-      margin: 6px 0;
     }
 
-    /* Details */
     .details {
       font-size: 14px;
       color: #555;
+      margin-top: 4px;
     }
 
     /* WhatsApp button */
     .whatsapp-btn {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      border-radius: 20px;
-      font-weight: bold;
-    }
-
-    /* Back button */
-    .back-home {
-      display: inline-block;
-      margin: 25px auto;
-      padding: 12px 22px;
-      background: #0a7cff;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: linear-gradient(to right, #25D366, #128C7E);
       color: white;
       text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
+      transition: transform 0.3s;
     }
 
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Back button */
     .back-wrap {
       text-align: center;
-      padding-bottom: 30px;
+      padding: 30px;
+    }
+
+    .back-home {
+      display: inline-block;
+      padding: 14px 26px;
+      background: linear-gradient(to right, #0a7cff, #4facfe);
+      color: white;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -144,43 +148,52 @@
 
 <header>
   <h1>Our Products</h1>
-  <p>Premium • Eco Friendly • Reusable</p>
+  <p>Premium • Eco Friendly • Reusable Carry Bags</p>
 </header>
 
+<!-- Pricing rule info -->
+<div class="pricing-info">
+  <h2>Flexible Pricing Based on Quantity & GSM</h2>
+  <p>
+    Order more, pay less. Product prices depend on order quantity and GSM
+    (material thickness).
+  </p>
+  <p>
+    Higher quantity orders get lower price per piece. GSM can be changed
+    as per customer requirement, and pricing will adjust accordingly.
+  </p>
+</div>
+
+<!-- Products -->
 <div class="product-grid">
 
   <div class="product-card">
     <img src="bag1.jpg" alt="Shopping Bag">
     <h3>Shopping Bag</h3>
     <div class="price">₹25 / piece</div>
-    <div class="details">Minimum Order: 500 pcs</div>
-    <a class="whatsapp-btn" href="https://wa.me/918807841189">
-      Enquire on WhatsApp
-    </a>
+    <div class="details">MOQ: 500 pcs • GSM Customizable</div>
+    <a class="whatsapp-btn" href="https://wa.me/918807841189">Enquire on WhatsApp</a>
   </div>
 
   <div class="product-card">
     <img src="bag2.jpg" alt="Marriage Bag">
     <h3>Marriage Bag</h3>
-    <div class="price">₹9 / piece</div>
+    <div class="price">₹40 / piece</div>
     <div class="details">Premium Stitch • Custom Print</div>
-    <a class="whatsapp-btn" href="https://wa.me/918807841189">
-      Enquire on WhatsApp
-    </a>
+    <a class="whatsapp-btn" href="https://wa.me/918807841189">Enquire on WhatsApp</a>
   </div>
 
   <div class="product-card">
     <img src="bag3.jpg" alt="Return Gift Bag">
     <h3>Return Gift Bag</h3>
-    <div class="price">₹11 / piece</div>
+    <div class="price">₹30 / piece</div>
     <div class="details">Eco Friendly • Reusable</div>
-    <a class="whatsapp-btn" href="https://wa.me/918807841189">
-      Enquire on WhatsApp
-    </a>
+    <a class="whatsapp-btn" href="https://wa.me/918807841189">Enquire on WhatsApp</a>
   </div>
 
 </div>
 
+<!-- Back -->
 <div class="back-wrap">
   <a href="index.html" class="back-home">⬅ Back to Home</a>
 </div>
