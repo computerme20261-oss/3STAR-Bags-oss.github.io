@@ -19,6 +19,50 @@
       text-align: center;
       padding: 20px;
     }
+    
+<section class="pricing-info">
+  <h2>Flexible Pricing Based on Quantity & GSM</h2>
+  <p>
+    Order more, pay less. Prices may vary based on order quantity and
+    GSM (material thickness).
+  </p>
+  <p>
+    Bulk orders get better pricing. GSM can be changed as per customer
+    requirement, and price will adjust accordingly.
+  </p>
+</section>
+
+    .pricing-info {
+  background: linear-gradient(135deg, #ffffff, #f1f5ff);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  animation: fadeUp 1s ease;
+}
+
+.pricing-info h2 {
+  color: #0a7cff;
+  margin-bottom: 10px;
+}
+
+.pricing-info p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Simple premium animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
     /* Product grid */
     .product-grid {
