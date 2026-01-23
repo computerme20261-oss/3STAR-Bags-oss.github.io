@@ -2,225 +2,221 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Customization | 3STAR Carry Bags</title>
+<title>Customize Your Bag | 3 STAR</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* BASIC RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-/* BODY */
 body{
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  color:#fff;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f6f8;
+  color:#222;
 }
 
-/* HEADER */
 header{
+  background:#111;
+  color:#fff;
+  padding:18px;
   text-align:center;
-  padding:25px 15px;
+  font-size:22px;
 }
 
-header h1{
-  font-size:30px;
-  margin-bottom:6px;
-  letter-spacing:1px;
+.container{
+  padding:20px;
+  max-width:900px;
+  margin:auto;
 }
 
-header p{
-  opacity:0.9;
-}
-
-/* GRID SECTION */
 .section{
-  padding:20px;
+  background:#fff;
+  padding:18px;
+  margin-bottom:18px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
 }
 
-.grid{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap:20px;
+.section h3{
+  margin-top:0;
+  color:#ff5722;
 }
 
-/* CARD */
-.card{
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.35);
-  animation: fadeUp 0.9s ease;
-}
-
-/* IMAGE FIX – IMPORTANT */
-.card img{
+input, select{
   width:100%;
-  height:150px;
-  aspect-ratio: 16 / 9; 
-  object-fit:cover;
-  display:block;
-}
-
-/* CARD CONTENT */
-.card h3{
-  padding:12px 12px 5px;
-  color:#ffd700;
-}
-
-.card p{
-  padding:0 12px 15px;
+  padding:10px;
+  margin-top:8px;
+  margin-bottom:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
   font-size:14px;
-  line-height:1.5;
-  color:#f1f1f1;
 }
 
-/* INFO BOX */
-.info{
-  background: linear-gradient(135deg,#ffffff,#e9edff);
-  color:#333;
-  margin:25px 20px;
-  padding:22px;
-  border-radius:18px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-  animation: fadeUp 1.2s ease;
+.options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-.info h2{
-  margin-bottom:10px;
-  color:#0a7cff;
+.options label{
+  background:#eee;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
 }
 
-/* BUTTONS */
-.actions{
-  text-align:center;
-  padding:20px;
+.options input{
+  display:none;
 }
 
-.actions a{
-  display:inline-block;
-  margin:10px;
-  padding:14px 24px;
+.options input:checked + span{
+  background:#ff5722;
+  color:#fff;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  background:linear-gradient(135deg,#ff9800,#ff5722);
+  border:none;
+  color:#fff;
   border-radius:30px;
-  text-decoration:none;
   font-weight:bold;
-  transition:0.3s;
+  cursor:pointer;
 }
 
-/* BUTTON COLORS */
-.whatsapp{
-  background:#25d366;
-  color:#fff;
-}
-
-.call{
-  background:#0a7cff;
-  color:#fff;
-}
-
-.back{
-  background:#ffd700;
-  color:#000;
-}
-
-/* BUTTON HOVER */
-.actions a:hover{
-  transform:scale(1.08);
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(25px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:15px;
-  font-size:13px;
-  opacity:0.85;
+button:hover{
+  opacity:0.9;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Customization Options</h1>
-  <p>Design your carry bags your way</p>
-</header>
+<header>Customize Your Carry Bag</header>
 
-<section class="section">
-  <div class="grid">
+<div class="container">
 
-    <div class="card">
-      <img src="bags1.jpg" alt="Custom Size Bags">
-      <h3>Custom Size</h3>
-      <p>
-        Choose bag size based on your product.
-        Small, medium, and large sizes are available
-        as per your business requirement.
-      </p>
-    </div>
-
-    <div class="card">
-      <img src="bags2.jpg" alt="Custom Color Bags">
-      <h3>Custom Color</h3>
-      <p>
-        Select attractive colors that match your brand.
-        Multiple color choices are available for bulk orders.
-      </p>
-    </div>
-
-    <div class="card">
-      <img src="bags3.jpg" alt="Logo Printing Bags">
-      <h3>Logo Printing</h3>
-      <p>
-        Premium quality logo printing with clean finish
-        to improve brand visibility and trust.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<div class="info">
-  <h2>Flexible Pricing & GSM Options</h2>
-  <p>
-    Pricing depends on order quantity and GSM (material thickness).
-    Higher quantity orders receive lower price per piece.
-  </p>
-  <p>
-    GSM can be customized based on strength, usage, and budget needs.
-  </p>
+<!-- CUSTOMER -->
+<div class="section">
+<h3>Customer Details</h3>
+<input id="name" placeholder="Customer Name *">
+<input id="mobile" placeholder="Mobile Number (Optional)">
 </div>
 
-<div class="actions">
-  <a class="whatsapp" href="https://wa.me/918807841189" target="_blank">
-    WhatsApp Enquiry
-  </a>
-  <a class="call" href="tel:8807841189">
-    Call Now
-  </a>
-  <a class="back" href="index.html">
-    Back to Home
-  </a>
+<!-- MODEL -->
+<div class="section">
+<h3>Bag Model</h3>
+<div class="options">
+<label><input type="radio" name="model"><span>Shopping Bag</span></label>
+<label><input type="radio" name="model"><span>Stick Bag (Big Shopper)</span></label>
+<label><input type="radio" name="model"><span>Handle Bag</span></label>
+</div>
 </div>
 
-<footer>
-  © 3STAR Carry Bags – Tirunelveli, Tamil Nadu
-</footer>
+<!-- SIZE -->
+<div class="section">
+<h3>Bag Size (inches)</h3>
+<input id="size" placeholder="Length × Breadth (Example: 14 × 18)">
+</div>
+
+<!-- MATERIAL & COLOR -->
+<div class="section">
+<h3>Material</h3>
+<select id="material">
+<option>Non-Woven</option>
+<option>Woven</option>
+<option>Eco-Friendly Fabric</option>
+</select>
+
+<h3>Bag Color</h3>
+<select id="color">
+<option>Red</option>
+<option>Blue</option>
+<option>Green</option>
+<option>Yellow</option>
+<option>White</option>
+<option>Black</option>
+<option>Light Shade</option>
+<option>Dark Shade</option>
+</select>
+</div>
+
+<!-- PRINTING -->
+<div class="section">
+<h3>Printing Details</h3>
+<select id="printContent">
+<option>Logo</option>
+<option>Brand Name</option>
+<option>Address</option>
+<option>Logo + Brand</option>
+<option>Logo + Brand + Address</option>
+</select>
+
+<select id="printType">
+<option>Single Side</option>
+<option>Double Side</option>
+</select>
+
+<select id="printColor">
+<option>Single Color</option>
+<option>Double Color</option>
+<option>Multi Color (Digital Printing)</option>
+</select>
+</div>
+
+<!-- GSM -->
+<div class="section">
+<h3>GSM</h3>
+<select id="gsm">
+<option>60</option><option>65</option><option>70</option>
+<option>75</option><option>80</option><option>85</option>
+<option>90</option><option>95</option><option>100</option>
+<option>105</option><option>110</option><option>115</option>
+<option>120</option>
+</select>
+</div>
+
+<!-- BORDER -->
+<div class="section">
+<h3>Border Option</h3>
+<select id="border">
+<option>No Border</option>
+<option>Full Border</option>
+<option>Half Border</option>
+</select>
+</div>
+
+<!-- QUANTITY -->
+<div class="section">
+<h3>Quantity (Pcs)</h3>
+<input id="qty" placeholder="*****">
+</div>
+
+<!-- SEND -->
+<button onclick="sendWhatsApp()">Send Customization Details</button>
+
+</div>
+
+<script>
+function sendWhatsApp(){
+  let msg =
+  "Customize Bag Request:%0A" +
+  "Name: " + name.value + "%0A" +
+  "Mobile: " + mobile.value + "%0A" +
+  "Size: " + size.value + "%0A" +
+  "Material: " + material.value + "%0A" +
+  "Color: " + color.value + "%0A" +
+  "Printing: " + printContent.value + "%0A" +
+  "Print Type: " + printType.value + "%0A" +
+  "Print Color: " + printColor.value + "%0A" +
+  "GSM: " + gsm.value + "%0A" +
+  "Border: " + border.value + "%0A" +
+  "Quantity: " + qty.value;
+
+  window.open("https://wa.me/918807841189?text=" + msg);
+}
+</script>
 
 </body>
 </html>
