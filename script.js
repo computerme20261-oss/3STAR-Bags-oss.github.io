@@ -23,7 +23,6 @@ function generateBag() {
    /* ===== GSM ===== */
 const gsmValue = document.getElementById("gsm").value;
 bag.setAttribute("data-gsm", gsmValue);
-const gsmValue = document.getElementById("gsm").value;
 
   /* ===== SIZE (L × B IN INCH MODEL) ===== */
 const L = Number(document.getElementById("bagLength").value) || 14; // Length = height
@@ -90,6 +89,7 @@ function sendWhatsApp() {
     alert("Please select bag type");
     return;
   }
+const gsmValue = document.getElementById("gsm").value;
 
   const msg =
     "3 STAR BAG ORDER%0A" +
