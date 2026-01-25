@@ -149,21 +149,56 @@ button{
 
 /* ================= STICK BAG (BIG SHOPPER) ================= */
 .stick-bag{
-  border-radius:8px;
+  position: relative;
+  background:#e91e63;
+  border-radius:4px;
+  overflow:hidden;
 }
 
-.stick-bag::before,
-.stick-bag::after{
-  content:"";
+/* TOP FOLD */
+.bag-top{
   position:absolute;
-  top:-40px;
-  width:12px;
-  height:60px;
-  background:#333;
+  top:0;
+  left:0;
+  width:100%;
+  height:55px;
+  background:rgba(0,0,0,0.08);
 }
 
-.stick-bag::before{ left:22%; }
-.stick-bag::after{ right:22%; }
+/* STICK ROD */
+.stick-rod{
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:120px;
+  height:10px;
+  background:#222;
+  border-radius:6px;
+}
+
+/* FINGER CUT */
+.finger-cut{
+  position:absolute;
+  top:28px;
+  left:50%;
+  transform:translateX(-50%);
+  width:55px;
+  height:18px;
+  background:#f4f6f8;
+  border-radius:3px;
+}
+
+/* PRINT TEXT */
+.print-text{
+  position:absolute;
+  bottom:25px;
+  width:100%;
+  text-align:center;
+  font-weight:bold;
+  color:#ffd54f;
+}
+
 
 /* ================= D-CUT BAG ================= */
 .dcut-bag{
