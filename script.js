@@ -67,6 +67,7 @@ function sendWhatsApp() {
   const material = document.getElementById("material").value;
   const bagColor = bagColorSelect.value;
   const print = document.getElementById("printContent").value;
+  const printColor = document.getElementById("printColor").value;
   const gsm = document.getElementById("gsm").value;
   const qty = document.getElementById("quantity").value;
 
@@ -86,6 +87,7 @@ function sendWhatsApp() {
     "Material: " + material + "%0A" +
     "Bag Color: " + bagColor + "%0A" +
     "Printing: " + print + "%0A" +
+    "Print Color: " + printColor + "%0A" +
     "GSM: " + gsm + "%0A" +
     "Border: " + borderType + "%0A" +
     "Border Color: " + borderColor + "%0A" +
