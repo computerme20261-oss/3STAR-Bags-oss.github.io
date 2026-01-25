@@ -1,5 +1,5 @@
 function previewBag() {
-  const area = document.getElementById("previewArea");
+  const area = document.getElementById("bagPreview");
   area.innerHTML = "";
 
   /* ===== CREATE BAG ===== */
@@ -7,19 +7,17 @@ function previewBag() {
   bag.className = "bag";
 
   /* ===== BAG TYPE ===== */
-  const bagType = document.querySelector(
-    "input[name='bagType']:checked"
-  ).value;
+  const bagType = document.querySelector("input[name='bagType']:checked").value;
 
   bag.classList.remove("handle", "stick", "dcut");
 
-  if (bagType === "Handle") bag.classList.add("handle");
-  if (bagType === "Stick") bag.classList.add("stick");
-  if (bagType === "D-Cut") bag.classList.add("dcut");
+  if (bagType === "Handle Bag") bag.classList.add("handle");
+  if (bagType === "Stick Bag") bag.classList.add("stick");
+  if (bagType === "D-Cut Bag") bag.classList.add("dcut");
 
   /* ===== SIZE (L × B SCALE) ===== */
-  const L = parseInt(document.getElementById("length").value) || 14;
-  const B = parseInt(document.getElementById("breadth").value) || 18;
+  const L = parseInt(document.getElementById("bagLength").value) || 14;
+  const B = parseInt(document.getElementById("bagBreadth").value) || 18;
 
   bag.style.width = Math.min(260, L * 6) + "px";
   bag.style.height = Math.min(340, B * 6) + "px";
@@ -34,8 +32,8 @@ function previewBag() {
 
   bag.classList.remove("half-border", "full-border");
 
-  if (borderType === "half") bag.classList.add("half-border");
-  if (borderType === "full") bag.classList.add("full-border");
+  if (borderType === "Half Border") bag.classList.add("half-border");
+  if (borderType === "Full Border") bag.classList.add("full-border");
 
   bag.style.borderColor = borderColor;
 
@@ -46,7 +44,7 @@ function previewBag() {
   const content = document.getElementById("printContent").value;
   const printColor = document.getElementById("printColor").value;
 
-  if (content === "Logo") {
+  if (content === "Logo Only") {
     printText.innerText = "LOGO";
   } else if (content === "Logo + Address") {
     printText.innerText = "LOGO\nAddress";
@@ -72,19 +70,22 @@ function previewBag() {
 
 /* ===== WHATSAPP SEND ===== */
 function sendWhatsApp() {
+  const custName = document.getElementById("customerName").value;
+  const custMobile = document.getElementById("customerMobile").value;
+
   const msg =
     "3 STAR Bag Customization%0A" +
     "--------------------%0A" +
-    "Name: " + custName.value + "%0A" +
-    "Mobile: " + custMobile.value + "%0A" +
+    "Name: " + custName + "%0A" +
+    "Mobile: " + custMobile + "%0A" +
     "Bag Type: " +
     document.querySelector("input[name='bagType']:checked").value +
     "%0A" +
-    "Size: " + length.value + " x " + breadth.value + "%0A" +
-    "Bag Color: " + bagColor.value + "%0A" +
-    "Print: " + printContent.value + "%0A" +
-    "Print Color: " + printColor.value + "%0A" +
-    "Border: " + borderType.value + "%0A";
+    "Size: " + document.getElementById("bagLength").value + " x " + document.getElementById("bagBreadth").value + "%0A" +
+    "Bag Color: " + document.getElementById("bagColor").value + "%0A" +
+    "Print: " + document.getElementById("printContent").value + "%0A" +
+    "Print Color: " + document.getElementById("printColor").value + "%0A" +
+    "Border: " + document.getElementById("borderType").value + "%0A";
 
   window.open("https://wa.me/918807841189?text=" + msg);
 }
@@ -93,4 +94,3 @@ function sendWhatsApp() {
 function goHome() {
   window.location.href = "index.html";
 }
-
