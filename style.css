@@ -1,34 +1,47 @@
 /* ================= RESET ================= */
 *{
   box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body{
   margin:0;
-  background:#f4f6f8;
+  background:#f2f4f7;
   color:#222;
 }
 
 /* ================= HEADER ================= */
-header{
+.top-header{
   background:linear-gradient(135deg,#000,#333);
   color:#fff;
-  padding:20px;
+  padding:16px;
   text-align:center;
+  position:relative;
 }
 
-header h1{
+.top-header h1{
   margin:0;
-  letter-spacing:1px;
-  text-transform:uppercase;
+  font-size:20px;
+}
+
+.home-btn{
+  position:absolute;
+  left:15px;
+  top:15px;
+  background:#fff;
+  color:#000;
+  border:none;
+  padding:6px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 /* ================= CONTAINER ================= */
 .container{
-  max-width:1000px;
+  max-width:900px;
   margin:auto;
-  padding:20px;
+  padding:18px;
 }
 
 /* ================= SECTIONS ================= */
@@ -36,14 +49,8 @@ section{
   background:#fff;
   padding:18px;
   margin-bottom:18px;
-  border-radius:14px;
+  border-radius:16px;
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-section:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 35px rgba(0,0,0,0.12);
 }
 
 h3{
@@ -62,13 +69,7 @@ input, select{
   font-size:14px;
 }
 
-input:focus,
-select:focus{
-  outline:none;
-  border-color:#ff5722;
-  box-shadow:0 0 0 2px rgba(255,87,34,0.2);
-}
-
+/* ================= RADIO ================= */
 label{
   display:inline-block;
   margin-right:15px;
@@ -76,30 +77,15 @@ label{
   cursor:pointer;
 }
 
-input[type="radio"]{
-  accent-color:#ff5722;
-}
-
 /* ================= BUTTONS ================= */
 button{
   width:100%;
   padding:14px;
-  margin-top:10px;
   font-size:16px;
   border:none;
   border-radius:30px;
   cursor:pointer;
   font-weight:bold;
-  transition:transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
-}
-
-button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-button:active{
-  transform:scale(0.96);
 }
 
 #previewBtn{
@@ -110,108 +96,93 @@ button:active{
 #sendBtn{
   background:linear-gradient(135deg,#25D366,#128C7E);
   color:#fff;
-}
-
-#backBtn{
-  background:#111;
-  color:#fff;
+  margin-top:12px;
 }
 
 /* ================= PREVIEW AREA ================= */
 #bagPreview{
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-end;
   min-height:320px;
-  background:linear-gradient(135deg,#fafafa,#f0f0f0);
-  border-radius:16px;
-  padding:20px;
-  border:2px dashed #ddd;
 }
 
 /* ================= BAG BASE ================= */
 .bag{
   position:relative;
   background:#eee;
-  border-radius:8px;
-  overflow:hidden;
   transition:all 0.3s ease;
 }
 
-/* ================= HANDLE BAG (REAL CARRY BAG) ================= */
-.bag.handle{
-  border-radius:8px 8px 6px 6px;
+/* ================= GSM EFFECT ================= */
+.bag[data-gsm="60"]{ box-shadow:0 8px 16px rgba(0,0,0,0.18); }
+.bag[data-gsm="65"]{ box-shadow:0 9px 18px rgba(0,0,0,0.20); }
+.bag[data-gsm="70"]{ box-shadow:0 10px 20px rgba(0,0,0,0.22); }
+.bag[data-gsm="75"]{ box-shadow:0 12px 22px rgba(0,0,0,0.24); }
+.bag[data-gsm="80"]{ box-shadow:0 14px 26px rgba(0,0,0,0.26); }
+.bag[data-gsm="85"]{ box-shadow:0 16px 28px rgba(0,0,0,0.28); }
+.bag[data-gsm="90"]{ box-shadow:0 18px 32px rgba(0,0,0,0.30); }
+.bag[data-gsm="95"]{ box-shadow:0 20px 36px rgba(0,0,0,0.32); }
+.bag[data-gsm="100"]{ box-shadow:0 22px 40px rgba(0,0,0,0.34); }
+.bag[data-gsm="105"]{ box-shadow:0 24px 44px rgba(0,0,0,0.36); }
+.bag[data-gsm="110"]{ box-shadow:0 26px 46px rgba(0,0,0,0.38); }
+.bag[data-gsm="115"]{ box-shadow:0 28px 48px rgba(0,0,0,0.40); }
+.bag[data-gsm="120"]{ box-shadow:0 30px 52px rgba(0,0,0,0.42); }
+
+/* ================= HANDLE BAG ================= */
+.handle-bag{
+  border-radius:14px;
 }
 
-/* D-CUT HANDLE */
-.bag.handle::before{
+.handle-bag::before{
+  content:"";
+  position:absolute;
+  top:-30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:60%;
+  height:40px;
+  border:5px solid #333;
+  border-bottom:none;
+  border-radius:40px 40px 0 0;
+}
+
+/* ================= STICK BAG (BIG SHOPPER) ================= */
+.stick-bag{
+  border-radius:8px;
+}
+
+.stick-bag::before,
+.stick-bag::after{
+  content:"";
+  position:absolute;
+  top:-40px;
+  width:12px;
+  height:60px;
+  background:#333;
+}
+
+.stick-bag::before{ left:22%; }
+.stick-bag::after{ right:22%; }
+
+/* ================= D-CUT BAG ================= */
+.dcut-bag{
+  border-radius:14px 14px 6px 6px;
+}
+
+.dcut-bag::before{
   content:"";
   position:absolute;
   top:10px;
   left:50%;
   transform:translateX(-50%);
-  width:48%;
-  height:14%;
-  background:#f4f6f8;
+  width:55%;
+  height:35px;
+  background:#f2f4f7;
   border-radius:0 0 50px 50px;
 }
 
-/* ================= STICK BAG (REAL BIG SHOPPER - VERTICAL) ================= */
-.bag.stick{
-  border-radius:8px;
-}
-
-/* LONG FABRIC HANDLES */
-.bag.stick::before,
-.bag.stick::after{
-  content:"";
-  position:absolute;
-  top:-65px;
-  width:14px;
-  height:110px;
-  background:#dcdcdc;
-  border-radius:7px;
-}
-
-.bag.stick::before{
-  left:22%;
-}
-
-.bag.stick::after{
-  right:22%;
-}
-
-/* ================= D-CUT BAG ================= */
-.bag.dcut{
-  border-radius:8px 8px 6px 6px;
-}
-
-.bag.dcut::before{
-  content:"";
-  position:absolute;
-  top:12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:55%;
-  height:18%;
-  background:#f4f6f8;
-  border-radius:0 0 60px 60px;
-}
-
-/* ================= PRINT CONTENT ================= */
-.print{
-  position:absolute;
-  top:38%;
-  width:100%;
-  text-align:center;
-  font-weight:bold;
-  font-size:14px;
-  padding:0 12px;
-  line-height:1.4;
-  letter-spacing:0.5px;
-}
-
-/* ================= BORDER ================= */
+/* ================= BORDERS ================= */
 .full-border{
   border-left:4px solid;
   border-right:4px solid;
@@ -223,30 +194,19 @@ button:active{
   border-right:4px solid;
 }
 
-/* ================= GSM VISUAL EFFECT ================= */
-.bag[data-gsm="60"]{
-  box-shadow:0 10px 18px rgba(0,0,0,0.18);
-}
-
-.bag[data-gsm="90"]{
-  box-shadow:0 18px 32px rgba(0,0,0,0.28);
-}
-
-.bag[data-gsm="120"]{
-  box-shadow:0 28px 48px rgba(0,0,0,0.38);
+/* ================= PRINT ================= */
+.print-text{
+  position:absolute;
+  bottom:22px;
+  width:100%;
+  text-align:center;
+  font-weight:bold;
+  font-size:13px;
 }
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:600px){
-  header h1{
-    font-size:20px;
-  }
-
   .bag{
     transform:scale(0.9);
-  }
-
-  button{
-    font-size:15px;
   }
 }
