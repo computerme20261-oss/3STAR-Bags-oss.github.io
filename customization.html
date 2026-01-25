@@ -1,284 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Customize Your Bag | 3 STAR</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Customize Bag | 3 STAR Carry Bags</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f4f6f8;
-}
-
-header{
-  background:#111;
-  color:#fff;
-  padding:18px;
-  text-align:center;
-  font-size:22px;
-}
-
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
-}
-
-.section{
-  background:#fff;
-  padding:18px;
-  margin-bottom:20px;
-  border-radius:12px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.1);
-}
-
-.section h3{
-  margin-top:0;
-  color:#ff5722;
-}
-
-/* PREVIEW */
-.preview-box{
-  display:flex;
-  justify-content:center;
-  margin-bottom:20px;
-}
-
-#bag{
-  width:200px;
-  height:260px;
-  background:#fff;
-  border:3px solid transparent;
-  border-radius:6px;
-  position:relative;
-  transition:all 0.4s ease;
-}
-
-#printText{
-  position:absolute;
-  bottom:45%;
-  width:100%;
-  text-align:center;
-  font-weight:bold;
-}
-
-/* INPUTS */
-input, select{
-  width:100%;
-  padding:10px;
-  margin-top:8px;
-  margin-bottom:14px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-button{
-  width:100%;
-  padding:14px;
-  font-size:16px;
-  background:linear-gradient(135deg,#ff9800,#ff5722);
-  border:none;
-  color:#fff;
-  border-radius:30px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-button:hover{opacity:0.9;}
-
-.back-btn{
-  margin-top:10px;
-  background:#111;
-}
-</style>
+  <!-- CSS will be added in next step -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>Customize Your Carry Bag</header>
+<header>
+  Customize Your Carry Bag
+</header>
 
 <div class="container">
 
-<!-- PREVIEW -->
-<div class="section">
-<h3>Live Bag Preview</h3>
-<div class="preview-box">
-  <div id="bag">
-    <span id="printText">YOUR BRAND</span>
+  <!-- CUSTOMER DETAILS -->
+  <div class="section">
+    <h3>Customer Details</h3>
+    <input type="text" id="customerName" placeholder="Customer Name">
+    <input type="text" id="customerMobile" placeholder="Mobile Number (Optional)">
   </div>
-</div>
-</div>
 
-<!-- SIZE -->
-<div class="section">
-<h3>Bag Size (L × B)</h3>
-<input id="length" placeholder="Length (inch)">
-<input id="breadth" placeholder="Breadth (inch)">
-<select id="sizeView" onchange="updateBag()">
-  <option value="small">Small View</option>
-  <option value="medium">Medium View</option>
-  <option value="large">Large View</option>
-</select>
-</div>
-
-<!-- COLOR -->
-<div class="section">
-<h3>Bag Color</h3>
-<select id="bagColor" onchange="updateBag()">
-  <option value="white">White</option>
-  <option value="red">Red</option>
-  <option value="blue">Blue</option>
-  <option value="green">Green</option>
-  <option value="yellow">Yellow</option>
-  <option value="black">Black</option>
-</select>
-</div>
-
-<!-- PRINT -->
-<div class="section">
-<h3>Printing</h3>
-<select id="printContent">
-  <option>Brand Name</option>
-  <option>Logo</option>
-  <option>Brand + Address</option>
-</select>
-
-<select id="printColor" onchange="updateBag()">
-  <option value="black">Black</option>
-  <option value="white">White</option>
-  <option value="red">Red</option>
-  <option value="blue">Blue</option>
-  <option value="green">Green</option>
-  <option value="multi">Multi Color</option>
-</select>
-</div>
-
-<!-- BORDER -->
-<div class="section">
-<h3>Border</h3>
-<select id="borderType" onchange="updateBag()">
-  <option value="none">No Border</option>
-  <option value="full">Full Border</option>
-  <option value="half">Half Border</option>
-</select>
-
-<select id="borderColor" onchange="updateBag()">
-  <option value="black">Black</option>
-  <option value="red">Red</option>
-  <option value="blue">Blue</option>
-  <option value="yellow">Yellow</option>
-</select>
-</div>
-
-<!-- GSM -->
-<div class="section">
-<h3>GSM (Bag shape will NOT change)</h3>
-<select id="gsm">
-  <option>60</option><option>70</option><option>80</option>
-  <option>90</option><option>100</option><option>110</option>
-  <option>120</option>
-</select>
-</div>
-<!-- HANDLE TYPE -->
-<div class="section">
-  <h3>Handle Type</h3>
-
-  <div class="options">
-    <label>
-      <input type="radio" name="handleType" value="Handle Bag" checked>
-      <span>Handle Bag</span>
-    </label>
+  <!-- BAG TYPE -->
+  <div class="section">
+    <h3>Bag Type</h3>
 
     <label>
-      <input type="radio" name="handleType" value="Stick Bag (Big Shopper)">
-      <span>Stick Bag (Big Shopper)</span>
-    </label>
+      <input type="radio" name="bagType" value="handle" checked>
+      Handle Bag
+    </label><br>
 
     <label>
-      <input type="radio" name="handleType" value="D-Cut Bag">
-      <span>D-Cut Bag</span>
+      <input type="radio" name="bagType" value="stick">
+      Stick Bag (Big Shopper)
+    </label><br>
+
+    <label>
+      <input type="radio" name="bagType" value="dcut">
+      D-Cut Bag
     </label>
   </div>
+
+  <!-- BAG SIZE -->
+  <div class="section">
+    <h3>Bag Size (L × B in inches)</h3>
+    <input type="text" id="bagSize" placeholder="Example: 14 x 18">
+  </div>
+
+  <!-- MATERIAL -->
+  <div class="section">
+    <h3>Material</h3>
+    <select id="material">
+      <option>Non-Woven</option>
+      <option>Woven</option>
+      <option>Eco-Friendly Fabric</option>
+    </select>
+  </div>
+
+  <!-- BAG COLOR -->
+  <div class="section">
+    <h3>Bag Color</h3>
+    <select id="bagColor">
+      <option>White</option>
+      <option>Black</option>
+      <option>Red</option>
+      <option>Blue</option>
+      <option>Green</option>
+      <option>Yellow</option>
+      <option>Light Shade</option>
+      <option>Dark Shade</option>
+    </select>
+  </div>
+
+  <!-- PRINTING -->
+  <div class="section">
+    <h3>Printing Details</h3>
+
+    <select id="printContent">
+      <option>Logo Only</option>
+      <option>Logo + Address</option>
+      <option>Full Details (Logo + Name + Address)</option>
+    </select>
+
+    <select id="printColor">
+      <option>Single Color</option>
+      <option>Double Color</option>
+      <option>Multi Color (Digital)</option>
+    </select>
+  </div>
+
+  <!-- BORDER -->
+  <div class="section">
+    <h3>Border Option</h3>
+
+    <select id="borderType">
+      <option>No Border</option>
+      <option>Half Border</option>
+      <option>Full Border</option>
+    </select>
+
+    <select id="borderColor">
+      <option>Black</option>
+      <option>White</option>
+      <option>Red</option>
+      <option>Blue</option>
+      <option>Green</option>
+    </select>
+  </div>
+
+  <!-- GSM -->
+  <div class="section">
+    <h3>GSM</h3>
+    <select id="gsm">
+      <option>60</option>
+      <option>70</option>
+      <option>80</option>
+      <option>90</option>
+      <option>100</option>
+      <option>110</option>
+      <option>120</option>
+    </select>
+  </div>
+
+  <!-- QUANTITY -->
+  <div class="section">
+    <h3>Quantity (Pieces)</h3>
+    <input type="text" id="quantity" placeholder="Enter quantity">
+  </div>
+
+  <!-- PREVIEW AREA -->
+  <div class="section">
+    <h3>Bag Preview</h3>
+
+    <div id="bagPreview" class="bag handle">
+      <div class="handle"></div>
+      <div class="printText">Your Brand</div>
+    </div>
+  </div>
+
+  <!-- BUTTONS -->
+  <button onclick="previewBag()">Preview Bag</button>
+  <button onclick="sendWhatsApp()">Send Details</button>
+
 </div>
 
-<!-- CUSTOMER -->
-<div class="section">
-<h3>Customer Details</h3>
-<input id="name" placeholder="Customer Name">
-<input id="mobile" placeholder="Mobile (Optional)">
-<input id="qty" placeholder="Quantity (pcs)">
-<button onclick="sendWhatsApp()">Send Customization Details</button>
-<button class="back-btn" onclick="goHome()">⬅ Back to Home</button>
-</div>
-  
-</div>
-
-<script>
-function updateBag(){
-  const bag=document.getElementById("bag");
-  const size=document.getElementById("sizeView").value;
-  const bagColor=document.getElementById("bagColor").value;
-  const borderType=document.getElementById("borderType").value;
-  const borderColor=document.getElementById("borderColor").value;
-  const printColor=document.getElementById("printColor").value;
-  const text=document.getElementById("printText");
-
-  bag.style.background=bagColor;
-
-  if(size==="small"){bag.style.width="160px";bag.style.height="220px";}
-  if(size==="medium"){bag.style.width="200px";bag.style.height="260px";}
-  if(size==="large"){bag.style.width="240px";bag.style.height="300px";}
-
-  if(borderType==="full"){
-    bag.style.border="4px solid "+borderColor;
-  }else if(borderType==="half"){
-    bag.style.borderBottom="4px solid "+borderColor;
-    bag.style.borderTop="none";
-    bag.style.borderLeft="none";
-    bag.style.borderRight="none";
-  }else{
-    bag.style.border="3px solid transparent";
-  }
-
-  if(printColor==="multi"){
-    text.style.background="linear-gradient(to right,red,blue,green)";
-    text.style.webkitBackgroundClip="text";
-    text.style.color="transparent";
-  }else{
-    text.style.background="none";
-    text.style.color=printColor;
-  }
-}
-<script>
-function getHandleType() {
-  const types = document.getElementsByName("handleType");
-  for (let t of types) {
-    if (t.checked) return t.value;
-  }
-  return "";
-}
-</script>
-
-function sendWhatsApp(){
- <script>
-  let msg=
-  "Bag Customization%0A"+
-  "Name: "+name.value+"%0A"+
-  "Mobile: "+mobile.value+"%0A"+
-  "Size: "+length.value+"×"+breadth.value+"%0A"+
-  "Handle Type: " + getHandleType() + "%0A" +
-  "GSM: "+gsm.value+"%0A"+
-  "Qty: "+qty.value;
-  window.open("https://wa.me/918807841189?text="+msg);
-}
-</script>
-
-function goHome(){
-  window.location.href="index.html";
-}
-</script>
+<!-- JS will be added in next step -->
+<script src="script.js"></script>
 
 </body>
 </html>
