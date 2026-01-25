@@ -1,6 +1,4 @@
-/* ===============================
-   RESET & BASE
-================================ */
+/* ===== RESET ===== */
 *{
   box-sizing:border-box;
   font-family:Arial, Helvetica, sans-serif;
@@ -12,265 +10,128 @@ body{
   color:#222;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
-/* ===============================
-   HEADER
-================================ */
-header{
-  background:linear-gradient(135deg,#000,#333);
-  color:#fff;
-  padding:18px;
-  text-align:center;
-}
-
-header h1{
-  margin:0;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-
-/* ===============================
-   CONTAINER
-================================ */
-.container{
-  max-width:950px;
-  margin:auto;
-  padding:20px;
-}
-
-/* ===============================
-   SECTIONS
-================================ */
-section{
-  background:#fff;
-  padding:18px;
-  margin-bottom:18px;
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  transition:transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-section:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 35px rgba(0,0,0,0.12);
-}
-
-h3{
-  margin-top:0;
-  color:#ff5722;
-}
-
-/* ===============================
-   INPUTS
-================================ */
-input,
-select{
-  width:100%;
-  padding:10px;
-  margin-top:6px;
-  margin-bottom:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:14px;
-}
-
-input:focus,
-select:focus{
-  outline:none;
-  border-color:#ff5722;
-  box-shadow:0 0 0 2px rgba(255,87,34,0.2);
-}
-
-/* ===============================
-   RADIO
-================================ */
-label{
-  display:inline-block;
-  margin-right:15px;
-  margin-bottom:8px;
-  cursor:pointer;
-}
-
-input[type="radio"]{
-  accent-color:#ff5722;
-}
-
-/* ===============================
-   BUTTONS
-================================ */
-button{
-  width:100%;
-  padding:14px;
-  margin-top:10px;
-  font-size:16px;
-  border:none;
-  border-radius:30px;
-  cursor:pointer;
-  font-weight:bold;
-  transition:transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
-}
-
-button:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
-  opacity:0.95;
-}
-
-button:active{
-  transform:scale(0.96);
-}
-
-#previewBtn{
-  background:#000;
-  color:#fff;
-}
-
-#sendBtn{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-}
-
-#backBtn{
-  background:#111;
-  color:#fff;
-}
-
-/* ===============================
-   PREVIEW AREA
-================================ */
+/* ===== PREVIEW ===== */
 #bagPreview{
   display:flex;
   justify-content:center;
   align-items:center;
-  min-height:260px;
-  background:linear-gradient(135deg,#fafafa,#f0f0f0);
-  border-radius:16px;
-  padding:20px;
-  border:2px dashed #ddd;
+  min-height:280px;
 }
 
-/* ===============================
-   BAG BASE
-================================ */
+/* ===== BASE BAG ===== */
 .bag{
-  width:180px;
-  height:220px;
-  background:#eee;
   position:relative;
+  background:#eee;
+  border-radius:10px;
   transition:all 0.3s ease;
-  box-shadow:0 20px 35px rgba(0,0,0,0.25);
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  padding-bottom:18px;
 }
 
-/* ===============================
+/* ===== PRINT TEXT ===== */
+.print{
+  text-align:center;
+  font-weight:bold;
+  font-size:12px;
+  white-space:pre-line;
+}
+
+/* =========================
    HANDLE BAG
-================================ */
+========================= */
 .handle{
   border-radius:12px;
 }
 
+/* Handle shape */
 .handle::before{
   content:"";
   position:absolute;
-  top:-28px;
-  left:40px;
-  width:100px;
-  height:40px;
+  top:-30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:60%;
+  height:32px;
   border:5px solid #333;
   border-bottom:none;
   border-radius:40px 40px 0 0;
 }
 
-/* ===============================
-   STICK BAG
-================================ */
+/* =========================
+   STICK BAG (SHOPPER)
+========================= */
 .stick{
-  width:160px;
-  height:260px;
-  border-radius:10px;
+  border-radius:8px;
 }
 
-.stick::before,
+/* Left stick */
+.stick::before{
+  content:"";
+  position:absolute;
+  top:-38px;
+  left:25%;
+  width:8px;
+  height:38px;
+  background:#333;
+  border-radius:6px;
+}
+
+/* Right stick */
 .stick::after{
   content:"";
   position:absolute;
-  top:-30px;
-  width:10px;
-  height:40px;
+  top:-38px;
+  right:25%;
+  width:8px;
+  height:38px;
   background:#333;
+  border-radius:6px;
 }
 
-.stick::before{ left:40px; }
-.stick::after{ right:40px; }
-
-/* ===============================
+/* =========================
    D-CUT BAG
-================================ */
+========================= */
 .dcut{
   border-radius:12px 12px 6px 6px;
 }
 
+/* D cut hole */
 .dcut::before{
   content:"";
   position:absolute;
-  top:8px;
+  top:10px;
   left:50%;
   transform:translateX(-50%);
   width:70px;
-  height:30px;
+  height:28px;
   background:#f4f6f8;
   border-radius:0 0 40px 40px;
 }
 
-/* ===============================
-   BORDER TYPES
-================================ */
+/* =========================
+   BORDER RULES
+========================= */
+
+/* Full border = left + right + bottom */
 .full-border{
   border-left:4px solid;
   border-right:4px solid;
   border-bottom:4px solid;
 }
 
+/* Half border = left + right */
 .half-border{
   border-left:4px solid;
   border-right:4px solid;
 }
 
-/* ===============================
-   PRINT TEXT
-================================ */
-.print{
-  position:absolute;
-  bottom:20px;
-  width:100%;
-  text-align:center;
-  font-weight:bold;
-  font-size:13px;
-  letter-spacing:0.5px;
-  line-height:1.4;
-  white-space:pre-line;
-}
-
-/* ===============================
-   MOBILE RESPONSIVE
-================================ */
+/* =========================
+   RESPONSIVE
+========================= */
 @media(max-width:600px){
-  header h1{
-    font-size:20px;
-  }
-
-  section{
-    padding:14px;
-  }
-
-  button{
-    font-size:15px;
-  }
-
   .bag{
     transform:scale(0.9);
   }
 }
-
