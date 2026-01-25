@@ -1,136 +1,110 @@
-/* ===============================
-   AUTO BAG PREVIEW
-================================ */
+/* ================= ELEMENTS ================= */
+const bag = document.getElementById("bag");
+const previewArea = document.getElementById("bagPreview");
 
-function generateBag() {
-  const area = document.getElementById("bagPreview");
-  area.innerHTML = "";
+const bagType = document.getElementById("bagType");
+const bagColor = document.getElementById("bagColor");
+const printText = document.getElementById("printText");
 
-  const bagTypeInput = document.querySelector("input[name='bagType']:checked");
-  if (!bagTypeInput) return;
+const bagLength = document.getElementById("bagLength"); // L (Height)
+const bagBreadth = document.getElementById("bagBreadth"); // B (Width)
 
-  const bag = document.createElement("div");
-  bag.className = "bag";
+const gsmSelect = document.getElementById("gsm");
+const borderType = document.getElementById("borderType");
+const borderColor = document.getElementById("borderColor");
 
-  /* BAG TYPE */
-  const bagType = bagTypeInput.value;
-  bag.classList.remove("handle", "stick", "dcut");
+const qtyInput = document.getElementById("quantity");
 
-  if (bagType === "Handle Bag") bag.classList.add("handle");
-  if (bagType === "Stick Bag") bag.classList.add("stick");
-  if (bagType === "D-Cut Bag") bag.classList.add("dcut");
+const previewBtn = document.getElementById("previewBtn");
+const sendBtn = document.getElementById("sendBtn");
 
-   /* ===== GSM ===== */
-const gsmValue = document.getElementById("gsm").value;
-bag.setAttribute("data-gsm", gsmValue);
+/* ================= CONSTANTS ================= */
+const PX = 6; // 1 inch = 6px (preview scale)
 
-  /* ===== SIZE (L × B IN INCH MODEL) ===== */
-const L = Number(document.getElementById("bagLength").value) || 14; // Length = height
-const B = Number(document.getElementById("bagBreadth").value) || 12; // Breadth = width
+/* ================= INIT ================= */
+updatePreview();
 
-const PX = 6; // 1 inch = 6px preview scale
+/* ================= EVENTS ================= */
+[
+  bagType, bagColor, printText,
+  bagLength, bagBreadth,
+  gsmSelect, borderType, borderColor,
+  qtyInput
+].forEach(el => {
+  el.addEventListener("input", updatePreview);
+});
 
-bag.style.height = Math.min(420, L * PX) + "px";
-bag.style.width  = Math.min(320, B * PX) + "px";
+previewBtn.addEventListener("click", updatePreview);
+sendBtn.addEventListener("click", sendWhatsApp);
 
+/* ================= MAIN PREVIEW FUNCTION ================= */
+function updatePreview(){
 
-  /* BAG COLOR */
-  const bagColor = document.getElementById("bagColor").value;
-  bag.style.background = bagColor.toLowerCase();
+  /* ---- SIZE ---- */
+  const L = Number(bagLength.value) || 14;
+  const B = Number(bagBreadth.value) || 12;
 
-  /* BORDER */
-  const borderType = document.getElementById("borderType").value;
-  const borderColor = document.getElementById("borderColor").value;
+  bag.style.height = Math.min(420, L * PX) + "px";
+  bag.style.width  = Math.min(320, B * PX) + "px";
 
-  bag.classList.remove("half-border", "full-border");
+  /* ---- BAG TYPE ---- */
+  bag.className = "bag"; // reset
+  bag.classList.add(bagType.value);
 
-  if (borderType === "Half Border") bag.classList.add("half-border");
-  if (borderType === "Full Border") bag.classList.add("full-border");
+  /* ---- COLOR ---- */
+  bag.style.background = bagColor.value;
 
-  bag.style.borderColor = borderColor.toLowerCase();
+  /* ---- GSM ---- */
+  bag.setAttribute("data-gsm", gsmSelect.value);
 
-  /* PRINT CONTENT */
-  const print = document.createElement("div");
-  print.className = "print";
+  /* ---- BORDER ---- */
+  bag.classList.remove("full-border","half-border");
 
-  const printContent = document.getElementById("printContent").value;
-  const printColor = document.getElementById("printColor").value;
-
-  if (printContent === "Logo Only") {
-    print.innerText = "LOGO";
-  } else if (printContent === "Logo + Address") {
-    print.innerText = "LOGO\nAddress";
-  } else {
-    print.innerText = "LOGO\nShop Name\nAddress";
+  if(borderType.value === "full"){
+    bag.classList.add("full-border");
+    bag.style.borderColor = borderColor.value;
+  }
+  else if(borderType.value === "half"){
+    bag.classList.add("half-border");
+    bag.style.borderColor = borderColor.value;
   }
 
-  print.style.color = printColor.toLowerCase();
+  /* ---- PRINT CONTENT ---- */
+  let print = bag.querySelector(".print");
+  if(!print){
+    print = document.createElement("div");
+    print.className = "print";
+    bag.appendChild(print);
+  }
 
-  /* SMOOTH EFFECT */
-  bag.style.opacity = "0";
-  bag.style.transform = "scale(0.9)";
-  setTimeout(() => {
-    bag.style.transition = "all 0.3s ease";
-    bag.style.opacity = "1";
-    bag.style.transform = "scale(1)";
-  }, 50);
-
-  bag.appendChild(print);
-  area.appendChild(bag);
+  print.innerText = printText.value || "";
 }
 
-/* ===============================
-   WHATSAPP SEND (PLAN FIRST)
-================================ */
+/* ================= WHATSAPP SEND ================= */
+function sendWhatsApp(){
 
-function sendWhatsApp() {
-  const bagType = document.querySelector("input[name='bagType']:checked")?.value || "";
-  if (!bagType) {
-    alert("Please select bag type");
-    return;
-  }
-const gsmValue = document.getElementById("gsm").value;
+  const L = bagLength.value || 14;
+  const B = bagBreadth.value || 12;
 
   const msg =
-    "3 STAR BAG ORDER%0A" +
-    "------------------%0A" +
-    "Name: " + (customerName.value || "Customer") + "%0A" +
-    "Mobile: " + (customerMobile.value || "-") + "%0A" +
-    "Bag Type: " + bagType + "%0A" +
-    "Size: " + (bagLength.value || 14) + " x " + (bagBreadth.value || 18) + "%0A" +
-    "GSM: " + gsmValue + "%0A" +
-    "Material: " + material.value + "%0A" +
-    "Bag Color: " + bagColor.value + "%0A" +
-    "Print: " + printContent.value + "%0A" +
-    "Print Color: " + printColor.value + "%0A" +
-    "Border: " + borderType.value + "%0A" +
-    "Quantity: " + (quantity.value || "-");
+`🛍️ *Bag Customization Order*
 
-  window.open("https://wa.me/918807841189?text=" + msg, "_blank");
+Bag Type: ${bagType.value}
+Size: ${L}" (L) × ${B}" (B)
+Color: ${bagColor.value}
+GSM: ${gsmSelect.value}
+
+Print: ${printText.value || "No Print"}
+
+Border: ${borderType.value}
+Border Color: ${borderColor.value}
+
+Quantity: ${qtyInput.value || "Not entered"}
+
+Please confirm price & delivery.`;
+
+  const phone = "91XXXXXXXXXX"; // replace with your number
+  const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+
+  window.open(url, "_blank");
 }
-
-/* ===============================
-   BACK
-================================ */
-
-function goHome() {
-  window.location.href = "index.html";
-}
-
-/* ===============================
-   AUTO CHANGE LISTENERS
-================================ */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  document.querySelectorAll(
-    "input, select"
-  ).forEach(el => {
-    el.addEventListener("change", generateBag);
-    el.addEventListener("input", generateBag);
-  });
-
-  document.getElementById("sendBtn").addEventListener("click", sendWhatsApp);
-  document.getElementById("backBtn").addEventListener("click", goHome);
-
-});
