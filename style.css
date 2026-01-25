@@ -154,6 +154,18 @@ button:hover{
   border-right:4px solid black;
   border-bottom:4px solid black;
 }
+/* Printing color preview */
+.print-single{
+  color:black;
+}
+
+.print-double{
+  color:darkred;
+}
+
+.print-multi{
+  color:linear-gradient(red, blue);
+}
 
 /* ===== ANIMATION ===== */
 .bag:hover{
