@@ -126,9 +126,12 @@ button{
   position:relative;
   background:#e91e63;
   border-radius:6px;
+  width: 320px;
+  height: 380px;
   transition:all 0.35s ease;
   animation:pop 0.35s ease;
 }
+
 
 @keyframes pop{
   from{transform:scale(0.9);opacity:0;}
