@@ -10,20 +10,45 @@ document.addEventListener("DOMContentLoaded", () => {
   sendBtn.addEventListener("click", sendWhatsApp);
 
   /* ================= PREVIEW BAG ================= */
-  function previewBag(){
+function previewBag(){
 
-    previewBox.innerHTML = "";
+  previewBox.innerHTML = "";
 
-    const bag = document.createElement("div");
-    bag.className = "bag";
+  const bag = document.createElement("div");
+  bag.className = "bag";
 
-    /* BAG TYPE */
-    const bagType = document.querySelector("input[name='bagType']:checked").value;
-    bag.classList.add(
-      bagType === "Handle" ? "handle-bag" :
-      bagType === "Stick"  ? "stick-bag"  :
-                             "dcut-bag"
-    );
+  /* ===== BAG TYPE ===== */
+  const bagType =
+    document.querySelector("input[name='bagType']:checked").value;
+
+  // remove old classes
+  bag.classList.remove("handle-bag","stick-bag","dcut-bag");
+
+  if(bagType === "Handle"){
+    bag.classList.add("handle-bag");
+  }
+
+  else if(bagType === "Stick"){
+    bag.classList.add("stick-bag");
+
+    // 🔥 STICK BAG ELEMENTS (VERTICAL STICK)
+    const topFold = document.createElement("div");
+    topFold.className = "bag-top";
+
+    const stickLeft = document.createElement("div");
+    stickLeft.className = "stick-left";
+
+    const stickRight = document.createElement("div");
+    stickRight.className = "stick-right";
+
+    bag.appendChild(topFold);
+    bag.appendChild(stickLeft);
+    bag.appendChild(stickRight);
+  }
+
+  else{
+    bag.classList.add("dcut-bag");
+  }
 
    // ===== SIZE (INCH → PIXEL) =====
 const L = Number(bagLength.value) || 25;   // Length / Height (inch)
