@@ -31,19 +31,15 @@ function previewBag(){
   else if(bagType === "Stick"){
     bag.classList.add("stick-bag");
 
-    // 🔥 STICK BAG ELEMENTS (VERTICAL STICK)
-    const topFold = document.createElement("div");
-    topFold.className = "bag-top";
+   else if(bagType === "Stick"){
+  bag.classList.add("stick-bag");
 
-    const stickLeft = document.createElement("div");
-    stickLeft.className = "stick-left";
+  // ✅ ONLY FINGER CUT (rod CSS-la irukkum)
+  const finger = document.createElement("div");
+  finger.className = "finger-cut";
+  bag.appendChild(finger);
+}
 
-    const stickRight = document.createElement("div");
-    stickRight.className = "stick-right";
-
-    bag.appendChild(topFold);
-    bag.appendChild(stickLeft);
-    bag.appendChild(stickRight);
   }
 
   else{
