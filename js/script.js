@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= PREVIEW BAG ================= */
 function previewBag(){
 
-  previewBox.innerHTML = "";
+  const previewBox = document.getElementById("bagPreview");
 
   const bag = document.createElement("div");
   bag.className = "bag";
