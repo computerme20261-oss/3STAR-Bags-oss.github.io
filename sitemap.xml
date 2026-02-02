@@ -3,6 +3,19 @@
 
   <url>
     <loc>https://computerme20261-oss.github.io/3STAR-Bags-oss.github.io/</loc>
+    <lastmod>2026-02-01</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://computerme20261-oss.github.io/3STAR-Bags-oss.github.io/products.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://computerme20261-oss.github.io/3STAR-Bags-oss.github.io/customization.html</loc>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
+
