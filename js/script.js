@@ -65,27 +65,36 @@ document.addEventListener("DOMContentLoaded", () => {
     if(borderType === "full") bag.classList.add("full-border");
     if(borderType === "half") bag.classList.add("half-border");
 
-    /* ===== PRINT ===== */
-    const print = document.createElement("div");
-    print.className = "print-text";
+  /* ===== PRINT ===== */
+const print = document.createElement("div");
+print.className = "print-text";
 
-    const content = document.getElementById("printContent").value;
+const content = document.getElementById("printContent").value;
 
-    if(content === "Logo Only"){
-      print.innerText = "LOGO";
-    }
-    else if(content === "Logo + Address"){
-      print.innerText = "LOGO\nADDRESS";
-    }
-    else{
-      print.innerText = "LOGO\nSHOP NAME\nADDRESS";
-    }
+if(content === "Logo Only"){
+  print.innerText = "LOGO";
+}
+else if(content === "Logo + Address"){
+  print.innerText = "LOGO\nADDRESS";
+}
+else{
+  print.innerText = "LOGO\nSHOP NAME\nADDRESS";
+}
 
-    print.style.color = document.getElementById("printColor").value;
-    bag.appendChild(print);
+print.style.color = document.getElementById("printColor").value;
 
-    previewBox.appendChild(bag);
-  }
+// APPLY SIZE CLASS
+const size = document.getElementById("bagSize").value;
+bag.classList.remove("small-bag","big-bag");
+
+if(size === "Big"){
+  bag.classList.add("big-bag");
+}else{
+  bag.classList.add("small-bag");
+}
+
+bag.appendChild(print);
+previewBox.appendChild(bag);
 
   /* ================= WHATSAPP ================= */
   function sendWhatsApp(){
