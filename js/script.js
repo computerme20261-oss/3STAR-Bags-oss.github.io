@@ -96,6 +96,9 @@ if(size === "Big"){
 bag.appendChild(print);
 previewBox.appendChild(bag);
 
+<button onclick="changeBag('small')">Small</button>
+<button onclick="changeBag('big')">Big</button>
+
   /* ================= WHATSAPP ================= */
   function sendWhatsApp(){
 
