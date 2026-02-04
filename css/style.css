@@ -269,40 +269,28 @@ button{
    BORDERS
 ===================================================== */
 .full-border{
-  border-left:4px solid;
-  border-right:4px solid;
-  border-bottom:4px solid;
+  border-left:7px solid;
+  border-right:7px solid;
+  border-bottom:7px solid;
 }
 
 .half-border{
-  border-left:4px solid;
-  border-right:4px solid;
+  border-left:7px solid;
+  border-right:7px solid;
 }
 
 /* =====================================================
-   PRINT AREA (AUTO SIZE FIX)
+   PRINT AREA
 ===================================================== */
 .print-text{
   position:absolute;
-  left:50%;
-  bottom:35px;
-  transform:translateX(-50%);
-  width:80%;
+  bottom:30px;
+  width:100%;
   text-align:center;
+  font-size:14px;
   font-weight:700;
   line-height:1.4;
   color:#ffd54f;
-}
-
-/* SMALL BAG PRINT */
-.small-bag .print-text{
-  font-size:14px;
-}
-
-/* BIG BAG PRINT */
-.big-bag .print-text{
-  font-size:22px;
-  bottom:55px;
 }
 
 
